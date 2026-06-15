@@ -1,0 +1,34 @@
+@inventoryUrl = http://127.0.0.1:5101
+@dispensingUrl = http://127.0.0.1:5102
+
+### Inventory health
+GET {{inventoryUrl}}/health
+
+### List inventory
+GET {{inventoryUrl}}/inventory
+
+### Successful dispense
+POST {{dispensingUrl}}/dispenses
+Content-Type: application/json
+
+{
+  "medicationId": "22222222-2222-2222-2222-222222222222",
+  "locationId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+  "quantity": 1,
+  "patientId": "PT-1042",
+  "requestedBy": "nurse.jordan",
+  "careArea": "Emergency Department"
+}
+
+### Invalid dispense missing patient id
+POST {{dispensingUrl}}/dispenses
+Content-Type: application/json
+
+{
+  "medicationId": "22222222-2222-2222-2222-222222222222",
+  "locationId": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+  "quantity": 1,
+  "patientId": "",
+  "requestedBy": "nurse.jordan",
+  "careArea": "Emergency Department"
+}
