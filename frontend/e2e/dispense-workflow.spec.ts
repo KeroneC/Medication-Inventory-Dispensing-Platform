@@ -4,7 +4,7 @@ test("user can review inventory and submit a dispense request", async ({ page })
   await page.goto("/");
 
   await expect(page.getByRole("heading", { name: "Medication Inventory & Dispensing" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Inventory" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Inventory", exact: true })).toBeVisible();
 
   await page.getByRole("row", { name: /Morphine Sulfate/i }).click();
   await page.getByLabel("Quantity").fill("1");

@@ -15,7 +15,7 @@ export default defineConfig({
   ],
   webServer: {
     command: "npm.cmd run dev",
-    cwd: "../../frontend",
+    cwd: "..",
     url: "http://127.0.0.1:5173",
     reuseExistingServer: true
   }
